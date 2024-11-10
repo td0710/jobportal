@@ -67,7 +67,6 @@ public class UsersService {
                 return jobSeekerProfile;
             }
         }
-
         return null;
     }
 

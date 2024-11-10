@@ -15,6 +15,7 @@ public class RecruiterProfile {
     private String firstName;
     private String lastName;
     private String city;
+    private String state;
     private String country;
     private String company;
     @Column(nullable = true,length = 64)
@@ -32,6 +33,14 @@ public class RecruiterProfile {
         this.country = country;
         this.company = company;
         this.profilePhoto = profilePhoto;
+    }
+
+    public String getState() {
+        return state;
+    }
+
+    public void setState(String state) {
+        this.state = state;
     }
 
     public RecruiterProfile(Users user) {
@@ -101,7 +110,11 @@ public class RecruiterProfile {
     public void setProfilePhoto(String profilePhoto) {
         this.profilePhoto = profilePhoto;
     }
-
+    @Transient
+    public String getPhotosImagePath() {
+        if(profilePhoto == null) return null;
+        return "/photos/recruiter/"+userAccountId+"/"+profilePhoto;
+    }
     @Override
     public String toString() {
         return "RecruiterProfile{" +
