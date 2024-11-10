@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.Date;
+import java.util.Optional;
 
 @Service
 public class UsersService {
@@ -23,4 +24,7 @@ public class UsersService {
         return usersRepoistory.save(user);
     }
 
+    public Optional<Users> getUserByEmail(String email) {
+        return usersRepoistory.findByEmail(email);
+    }
 }
