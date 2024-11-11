@@ -35,7 +35,7 @@ public class JobPostActivity {
     @Length(max=10000)
     private String descriptionOfJob;
 
-    private String jonType;
+    private String jobType;
     private String salary;
     private String remote;
 
@@ -47,7 +47,7 @@ public class JobPostActivity {
     public JobPostActivity() {
     }
 
-    public JobPostActivity(Integer jobPostId, Users postedById, JobLocation jobLocationId, JobCompany jobCompanyId, Boolean isActive, Boolean isSaved, String descriptionOfJob, String jonType, String salary, String remote, Date postedDate, String jobTitle) {
+    public JobPostActivity(Integer jobPostId, Users postedById, JobLocation jobLocationId, JobCompany jobCompanyId, Boolean isActive, Boolean isSaved, String descriptionOfJob, String jobType, String salary, String remote, Date postedDate, String jobTitle) {
         this.jobPostId = jobPostId;
         this.postedById = postedById;
         this.jobLocationId = jobLocationId;
@@ -55,7 +55,7 @@ public class JobPostActivity {
         this.isActive = isActive;
         this.isSaved = isSaved;
         this.descriptionOfJob = descriptionOfJob;
-        this.jonType = jonType;
+        this.jobType = jobType;
         this.salary = salary;
         this.remote = remote;
         this.postedDate = postedDate;
@@ -118,12 +118,12 @@ public class JobPostActivity {
         this.descriptionOfJob = descriptionOfJob;
     }
 
-    public String getJonType() {
-        return jonType;
+    public String getJobType() {
+        return jobType;
     }
 
-    public void setJonType(String jonType) {
-        this.jonType = jonType;
+    public void setJobType(String jobType) {
+        this.jobType = jobType;
     }
 
     public String getSalary() {
@@ -168,7 +168,7 @@ public class JobPostActivity {
                 ", isActive=" + isActive +
                 ", isSaved=" + isSaved +
                 ", descriptionOfJob='" + descriptionOfJob + '\'' +
-                ", jonType='" + jonType + '\'' +
+                ", jobType='" + jobType + '\'' +
                 ", salary='" + salary + '\'' +
                 ", remote='" + remote + '\'' +
                 ", postedDate=" + postedDate +
