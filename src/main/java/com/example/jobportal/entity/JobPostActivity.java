@@ -14,25 +14,24 @@ public class JobPostActivity {
     private Integer jobPostId;
 
     @ManyToOne
-    @JoinColumn(name = "postedById",referencedColumnName = "userId")
+    @JoinColumn(name = "postedById", referencedColumnName = "userId")
     private Users postedById;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "jobLocationId",referencedColumnName = "Id")
+    @JoinColumn(name = "jobLocationId", referencedColumnName = "Id")
     private JobLocation jobLocationId;
 
-
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name =  "jobCompanyId",referencedColumnName = "Id")
-    private JobCompany jobCompanyId ;
+    @JoinColumn(name = "jobCompanyId", referencedColumnName = "Id")
+    private JobCompany jobCompanyId;
 
     @Transient
-    private Boolean isActive ;
+    private Boolean isActive;
 
     @Transient
-    private Boolean isSaved ;
+    private Boolean isSaved;
 
-    @Length(max=10000)
+    @Length(max = 10000)
     private String descriptionOfJob;
 
     private String jobType;
@@ -41,7 +40,6 @@ public class JobPostActivity {
 
     @DateTimeFormat(pattern = "dd-MM-yyyy")
     private Date postedDate;
-
     private String jobTitle;
 
     public JobPostActivity() {
@@ -110,11 +108,11 @@ public class JobPostActivity {
         isSaved = saved;
     }
 
-    public @Length(max = 10000) String getDescriptionOfJob() {
+    public String getDescriptionOfJob() {
         return descriptionOfJob;
     }
 
-    public void setDescriptionOfJob(@Length(max = 10000) String descriptionOfJob) {
+    public void setDescriptionOfJob(String descriptionOfJob) {
         this.descriptionOfJob = descriptionOfJob;
     }
 

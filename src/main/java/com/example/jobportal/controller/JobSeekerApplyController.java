@@ -26,6 +26,4 @@ public class JobSeekerApplyController {
         model.addAttribute("user", usersService.getCurrentUserProfile());
         return "job-details";
     }
-
-
 }
