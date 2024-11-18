@@ -27,7 +27,9 @@ public class UsersService {
     private final PasswordEncoder passwordEncoder;
 
     @Autowired
-    public UsersService(UsersRepository usersRepository, JobSeekerProfileRepository jobSeekerProfileRepository, RecruiterProfileRepository recruiterProfileRepository, PasswordEncoder passwordEncoder) {
+    public UsersService(UsersRepository usersRepository,
+                        JobSeekerProfileRepository jobSeekerProfileRepository,
+                        RecruiterProfileRepository recruiterProfileRepository, PasswordEncoder passwordEncoder) {
         this.usersRepository = usersRepository;
         this.jobSeekerProfileRepository = jobSeekerProfileRepository;
         this.recruiterProfileRepository = recruiterProfileRepository;
@@ -83,5 +85,9 @@ public class UsersService {
             return user;
         }
         return null;
+    }
+
+    public Users findByEmail(String currentUsername) {
+        return usersRepository.findByEmail(currentUsername).orElseThrow(()-> new UsernameNotFoundException("User not found"));
     }
 }

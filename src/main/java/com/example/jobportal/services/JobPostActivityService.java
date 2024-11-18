@@ -4,8 +4,10 @@ import com.example.jobportal.entity.*;
 import com.example.jobportal.repository.JobPostActivityRepository;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 @Service
 public class JobPostActivityService {
@@ -22,7 +24,9 @@ public class JobPostActivityService {
     public List<RecruiterJobsDto> getRecruiterJobs(int recruiter) {
 
         List<IRecruiterJobs> recruiterJobsDto = jobPostActivityRepository.getRecruiterJobs(recruiter);
-
+        for (IRecruiterJobs recruiterJobs : recruiterJobsDto) {
+            System.out.println(recruiterJobs.getCountry());
+        }
         List<RecruiterJobsDto> recruiterJobsDtoList = new ArrayList<>();
 
         for (IRecruiterJobs rec : recruiterJobsDto) {
@@ -38,4 +42,15 @@ public class JobPostActivityService {
         return jobPostActivityRepository.findById(id).orElseThrow(
                     ()->new RuntimeException("JobPostActivity not found"));
     }
+
+    public List<JobPostActivity> getAll() {
+        return jobPostActivityRepository.findAll();
+    }
+
+    public List<JobPostActivity> search(String job, String location, List<String> type, List<String> remote,
+                                        LocalDate searhDate) {
+        return Objects.isNull(searhDate)?jobPostActivityRepository.searchWithoutDate(job,location,remote,type):
+                jobPostActivityRepository.search(job, location, remote, type, searhDate);
+    }
+
 }
